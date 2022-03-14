@@ -5,8 +5,9 @@ const app = express()
 const bodyParser = require("body-parser")
 const cookieParser = require("cookie-parser")
 const cors = require("cors")
-
+//My Routes
 const authRoutes = require("./routes/auth")
+const userRoutes = require("./routes/user")
 //DBConnection
 
 mongoose.connect(process.env.DATABASE,{ useUnifiedTopology: true,useUnifiedTopology:true,useCreateIndex:true })
@@ -23,6 +24,7 @@ app.use(cors())
 
 //Routes
 app.use("/api",authRoutes)
+app.use("/api",userRoutes)
 
 //Port
 const port = process.env.PORT||3000
